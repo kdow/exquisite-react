@@ -5,6 +5,25 @@ class PlayerSubmissionForm extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      adjective1: "",
+      noun1: "",
+      adverb: "",
+      verb: "",
+      adjective2: "",
+      noun2: ""
+    };
+  }
+
+  onInputChange = (event) => {
+    const updatedState = {};
+  
+    const field = event.target.name;
+    const value = event.target.value;
+  
+    updatedState[field] = value;
+    this.setState(updatedState);
   }
 
   render() {
@@ -17,30 +36,39 @@ class PlayerSubmissionForm extends Component {
 
           <div className="PlayerSubmissionForm__poem-inputs">
 
-            {
-              // Put your form inputs here... We've put in one below as an example
-            }
             The
             <input
               placeholder="adjective"
+              value={this.state.adjective1}
+              onChange={this.onInputChange}
               type="text" />
             <input
               placeholder="noun"
+              value={this.state.noun1}
+              onChange={this.onInputChange}
               type="text" />
             <input
               placeholder="adverb"
+              value={this.state.adverb}
+              onChange={this.onInputChange}
               type="text" />
             <input
               placeholder="verb"
+              value={this.state.verb}
+              onChange={this.onInputChange}
               type="text" />
             the
             <input
               placeholder="adjective"
+              value={this.state.adjective2}
+              onChange={this.onInputChange}
               type="text" />
             <input
               placeholder="noun"
+              value={this.state.noun2}
+              onChange={this.onInputChange}
               type="text" />
-      
+            .
           </div>
 
           <div className="PlayerSubmissionForm__submit">
