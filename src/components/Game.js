@@ -8,6 +8,18 @@ class Game extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      submissionList: []
+    }
+  }
+
+  addSubmissionCallback = (submission) => {
+    const submissionIds = this.state.submissionList.map(submission => submission.id)
+
+    this.setState({
+      submissionList: [...this.state.submissionList, {...submission, id: Math.max(...submissionIds) + 1}]
+    })
   }
 
   render() {
@@ -34,7 +46,7 @@ class Game extends Component {
 
         <RecentSubmission />
 
-        <PlayerSubmissionForm />
+        <PlayerSubmissionForm addSubmissionCallback={this.addSubmissionCallback} />
 
         <FinalPoem />
 
