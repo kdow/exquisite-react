@@ -10,7 +10,8 @@ class Game extends Component {
     super(props);
 
     this.state = {
-      submissionList: []
+      submissionList: [],
+      playerNum: 1
     }
   }
 
@@ -18,7 +19,8 @@ class Game extends Component {
     const submissionList = this.state.submissionList;
     submissionList.push(submission);
 
-    this.setState({ submissionList});
+    const newPlayerNum = this.state.playerNum + 1;
+    this.setState({ submissionList, playerNum: newPlayerNum});
   }
 
   render() {
@@ -45,7 +47,7 @@ class Game extends Component {
 
         <RecentSubmission />
 
-        <PlayerSubmissionForm addSubmissionCallback={this.addSubmission} />
+        <PlayerSubmissionForm addSubmissionCallback={this.addSubmission} playerNum={this.state.playerNum}/>
 
         <FinalPoem />
 
