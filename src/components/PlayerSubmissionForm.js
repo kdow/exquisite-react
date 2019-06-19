@@ -18,21 +18,27 @@ class PlayerSubmissionForm extends Component {
     };
   }
 
-  addSubmission = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const submission = this.state;
-    this.props.addSubmissionCallback(submission)
+    this.props.addSubmissionCallback(submission);
+
+    this.setState({
+      adj1: '',
+      noun1: '',
+      adv: '',
+      verb: '',
+      adj2: '',
+      noun2: ''
+    });
   }
 
   onInputChange = (event) => {
-    const updatedState = {};
-  
-    const field = event.target.name;
-    const value = event.target.value;
-  
-    updatedState[field] = value;
-    this.setState(updatedState);
+    const field = {}
+    field[event.target.name] = event.target.value;
+
+    this.setState(field);
   }
 
   render() {
@@ -41,7 +47,7 @@ class PlayerSubmissionForm extends Component {
       <div className="PlayerSubmissionForm">
         <h3>Player Submission Form for Player #{  }</h3>
 
-        <form className="PlayerSubmissionForm__form" onSubmit={this.addSubmission} >
+        <form className="PlayerSubmissionForm__form" onSubmit={this.handleSubmit} >
 
           <div className="PlayerSubmissionForm__poem-inputs">
 
