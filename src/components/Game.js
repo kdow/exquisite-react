@@ -11,16 +11,27 @@ class Game extends Component {
 
     this.state = {
       submissionList: [],
-      playerNum: 1
+      playerNum: 1,
+      complete: false,
+      recentSubmission: ''
     }
   }
 
   addSubmission = (submission) => {
-    const submissionList = this.state.submissionList;
-    submissionList.push(submission);
-
+    const submissionList = [...this.state.submissionList]
+    const recent = `The ${submission.adj1} ${submission.noun1} ${submission.adv} ${submission.verb} the ${submission.adj2} ${submission.noun2}.`
+    submissionList.push(recent);
     const newPlayerNum = this.state.playerNum + 1;
-    this.setState({ submissionList, playerNum: newPlayerNum});
+
+    this.setState({ 
+      submissionList, 
+      playerNum: newPlayerNum,
+      recentSubmission: recent
+    });
+  }
+
+  onDisplayPoem = () => {
+    this.setState({complete: true})
   }
 
   render() {
@@ -49,7 +60,7 @@ class Game extends Component {
 
         <PlayerSubmissionForm addSubmissionCallback={this.addSubmission} playerNum={this.state.playerNum}/>
 
-        <FinalPoem />
+        <FinalPoem onDisplayPoem={this.onDisplayPoem} submissions={this.state.submissionList} />
 
       </div>
     );
