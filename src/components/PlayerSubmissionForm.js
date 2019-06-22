@@ -41,9 +41,16 @@ class PlayerSubmissionForm extends Component {
     this.setState(field);
   }
 
-  render() {
+  changeInputStyling = (value) => {
+    if (value === '') {
+      return "PlayerSubmissionFormt__input--invalid"
+    } else {
+      return ''
+    };
+  }
 
-    // const displayButton = this.props.complete
+  
+  render() {
 
     return (
       <div className="PlayerSubmissionForm">
@@ -60,24 +67,28 @@ class PlayerSubmissionForm extends Component {
               placeholder="adjective"
               value={this.state.adj1}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.adj1)}
               type="text" />
             <input
               name="noun1"
               placeholder="noun"
               value={this.state.noun1}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.noun1)}
               type="text" />
             <input
               name="adv"
               placeholder="adverb"
               value={this.state.adv}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.adv)}
               type="text" />
             <input
               name="verb"
               placeholder="verb"
               value={this.state.verb}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.verb)}
               type="text" />
             the
             <input
@@ -85,12 +96,14 @@ class PlayerSubmissionForm extends Component {
               placeholder="adjective"
               value={this.state.adj2}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.adj2)}
               type="text" />
             <input
             name="noun2"
               placeholder="noun"
               value={this.state.noun2}
               onChange={this.onInputChange}
+              className={this.changeInputStyling(this.state.noun2)}
               type="text" />
             .
           </div>
