@@ -4,6 +4,7 @@ import './RecentSubmission.css';
 const RecentSubmission = (props) => {
 
   const displayRecentSub = props.recentSubmission !== ''
+  
   return (
     <div className="RecentSubmission">
       {

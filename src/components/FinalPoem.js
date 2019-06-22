@@ -9,28 +9,40 @@ const FinalPoem = (props) => {
     )
   });
 
+  const displayPoem = props.complete
+
   return (
     <div className="FinalPoem">
-      <section className="FinalPoem__poem">
-        <h3>Final Poem</h3>
-        <div>{poem}</div>
-      </section>
- 
-      <div className="FinalPoem__reveal-btn-container">
-        <input
-          type="button"
-          value="We are finished: Reveal the Poem"
-          className="FinalPoem__reveal-btn"
-          onClick={props.onDisplayPoem}
-        />
-      </div>
+      {
+        displayPoem && (
+          <section className="FinalPoem__poem">
+          <h3>Final Poem</h3>
+          <div>{poem}</div>
+        </section>
+        )
+      }
+      {
+        !displayPoem && (
+          <div className="FinalPoem__reveal-btn-container">
+          <input
+            type="button"
+            value="We are finished: Reveal the Poem"
+            className="FinalPoem__reveal-btn"
+            onClick={props.onDisplayPoem}
+          />
+          </div>
+        )
+
+      }
+
     </div>
   );
  }
  
  FinalPoem.propTypes = {
   onDisplayPoem: PropTypes.func,
-  submissions: PropTypes.array
+  submissions: PropTypes.array,
+  complete: PropTypes.bool
  };
 
 export default FinalPoem;
