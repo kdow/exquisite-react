@@ -43,8 +43,11 @@ class PlayerSubmissionForm extends Component {
 
   render() {
 
+    // const displayButton = this.props.complete
+
     return (
       <div className="PlayerSubmissionForm">
+        
         <h3>Player Submission Form for Player #{ this.props.playerNum }</h3>
 
         <form className="PlayerSubmissionForm__form" onSubmit={this.handleSubmit} >
@@ -91,7 +94,7 @@ class PlayerSubmissionForm extends Component {
               type="text" />
             .
           </div>
-
+        
           <div className="PlayerSubmissionForm__submit">
             <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
           </div>
@@ -104,7 +107,8 @@ class PlayerSubmissionForm extends Component {
 
 PlayerSubmissionForm.propTypes = {
   addSubmissionCallback: PropTypes.func.isRequired,
-  playerNum: PropTypes.number
+  playerNum: PropTypes.number,
+  complete: PropTypes.bool
 };
 
 export default PlayerSubmissionForm;
