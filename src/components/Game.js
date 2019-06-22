@@ -56,7 +56,7 @@ class Game extends Component {
           { exampleFormat }
         </p>
 
-        <RecentSubmission />
+        <RecentSubmission recentSubmission={this.state.recentSubmission} />
 
         <PlayerSubmissionForm addSubmissionCallback={this.addSubmission} playerNum={this.state.playerNum}/>
 
